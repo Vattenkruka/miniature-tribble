@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @JsonIdentityInfo(
@@ -15,7 +16,7 @@ public class Actor {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable=false)
     private String firstname;
@@ -26,11 +27,22 @@ public class Actor {
     @Column(nullable = false)
     private String url;
 
-    public Integer getId() {
+    @Column(nullable = false)
+    private Date dateOfBirth;
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -58,10 +70,11 @@ public class Actor {
         this.url = url;
     }
 
-    public Actor(Integer id, String firstname, String lastName, String url) {
+    public Actor(Long id, String firstname, String lastName, String url, Date dateOfBirth) {
         this.id = id;
         this.firstname = firstname;
         this.lastName = lastName;
         this.url = url;
+        this.dateOfBirth = dateOfBirth;
     }
 }
