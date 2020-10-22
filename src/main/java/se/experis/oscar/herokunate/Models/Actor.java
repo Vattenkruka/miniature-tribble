@@ -1,7 +1,6 @@
-package se.experis.oscar.herokunateAPI.Models;
+package se.experis.oscar.herokunate.Models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;

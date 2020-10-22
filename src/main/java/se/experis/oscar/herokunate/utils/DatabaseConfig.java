@@ -1,4 +1,4 @@
-package se.experis.oscar.herokunateAPI.utils;
+package se.experis.oscar.herokunate.utils;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
