@@ -21,6 +21,7 @@ public class ControllerAdvisor {
         CommonResponse cr = new CommonResponse();
         cr.message = request.getRequestURI() + " was not found";
 
+        //Logs if it can't find the url
         cmd.setResult(HttpStatus.NOT_FOUND);
         Logger.getInstance().logCommand(cmd);
         return new ResponseEntity<>(cr, HttpStatus.NOT_FOUND);

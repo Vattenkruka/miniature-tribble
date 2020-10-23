@@ -18,17 +18,23 @@ public class RootController {
     public ResponseEntity<CommonResponse> landing(HttpServletRequest request){
         Command cmd = new Command(request);
 
-        CommonResponse cr = new CommonResponse();
-        cr.message = "Hello world";
+        //process of the main route, in this specific case only a hello world test
+
+        CommonResponse commonResponse = new CommonResponse();
+        commonResponse.message = "Hello world";
+
+        //logs it
 
         cmd.setResult(HttpStatus.OK);
         Logger.getInstance().logCommand(cmd);
-        return new ResponseEntity<>(cr, HttpStatus.OK);
+        return new ResponseEntity<>(commonResponse, HttpStatus.OK);
     }
 
     @GetMapping("/log")
     public ResponseEntity<ArrayList<Command>> log(HttpServletRequest request){
         Command cmd = new Command(request);
+
+        //Logs and returns it to the /log endpoint
 
         cmd.setResult(HttpStatus.OK);
         Logger.getInstance().logCommand(cmd);

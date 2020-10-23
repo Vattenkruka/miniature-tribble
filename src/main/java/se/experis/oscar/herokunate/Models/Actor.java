@@ -8,16 +8,18 @@ import java.util.Date;
 
 @Entity
 @JsonIdentityInfo(
-        generator= ObjectIdGenerators.PropertyGenerator.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
 
 public class Actor {
 
+    //Declaration of the attributes of Actor
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String firstName;
 
     @Column(nullable = false)
@@ -29,6 +31,8 @@ public class Actor {
     @Column(nullable = false)
     private Date dateOfBirth;
 
+    //Getters and setters
+
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
@@ -39,10 +43,6 @@ public class Actor {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -68,14 +68,5 @@ public class Actor {
     public void setUrl(String url) {
         this.url = url;
     }
-/*
-    public Actor(Long id, String firstname, String lastName, String url, Date dateOfBirth) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastName = lastName;
-        this.url = url;
-        this.dateOfBirth = dateOfBirth;
-    }
 
- */
 }
