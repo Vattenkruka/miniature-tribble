@@ -18,7 +18,7 @@ public class Actor {
     private Long id;
 
     @Column(nullable=false)
-    private String firstname;
+    private String firstName;
 
     @Column(nullable = false)
     private String lastName;
@@ -45,12 +45,12 @@ public class Actor {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -68,7 +68,7 @@ public class Actor {
     public void setUrl(String url) {
         this.url = url;
     }
-
+/*
     public Actor(Long id, String firstname, String lastName, String url, Date dateOfBirth) {
         this.id = id;
         this.firstname = firstname;
@@ -76,4 +76,6 @@ public class Actor {
         this.url = url;
         this.dateOfBirth = dateOfBirth;
     }
+
+ */
 }
