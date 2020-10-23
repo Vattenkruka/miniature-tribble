@@ -126,5 +126,35 @@ public class ActorController {
 
     }
 
+    @PutMapping("/actor/{id}")
+    public ResponseEntity<CommonResponse> replaceActor(HttpServletRequest request, @RequestBody Actor newActor, @PathVariable Long id) {
+        Command cmd = new Command(request);
+
+        CommonResponse commonResponse = new CommonResponse();
+        HttpStatus resp;
+
+        if(actorRepository.existsById(id)) {
+            Optional<Actor> actorRepo = actorRepository.findById(id);
+            Actor actor = actorRepo.get();
+
+            actor.setFirstName(newActor.getFirstName());
+            actor.setLastName(newActor.getLastName());
+            actor.setDateOfBirth(newActor.getDateOfBirth());
+            actor.setUrl(newActor.getUrl());
+
+            actorRepository.save(actor);
+
+            commonResponse.data = actor;
+            commonResponse.message = "Replaced actor with id: " + actor.getId();
+            resp = HttpStatus.OK;
+        } else {
+            commonResponse.message = "Actor not found with id: " +id;
+            resp = HttpStatus.NOT_FOUND;
+        }
+
+        cmd.setResult(resp);
+        Logger.getInstance().logCommand(cmd);
+        return new ResponseEntity<>(commonResponse, resp);
+    }
 
 }
